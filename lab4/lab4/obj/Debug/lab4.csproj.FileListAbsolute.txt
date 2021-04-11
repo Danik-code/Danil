@@ -1,0 +1,10 @@
+G:\C#\ПИС\lab4\FifteenGame\lab4\lab4\bin\Debug\lab4.exe.config
+G:\C#\ПИС\lab4\FifteenGame\lab4\lab4\bin\Debug\lab4.exe
+G:\C#\ПИС\lab4\FifteenGame\lab4\lab4\bin\Debug\lab4.pdb
+G:\C#\ПИС\lab4\FifteenGame\lab4\lab4\obj\Debug\lab4.csprojAssemblyReference.cache
+G:\C#\ПИС\lab4\FifteenGame\lab4\lab4\obj\Debug\lab4.Fifteen.resources
+G:\C#\ПИС\lab4\FifteenGame\lab4\lab4\obj\Debug\lab4.Properties.Resources.resources
+G:\C#\ПИС\lab4\FifteenGame\lab4\lab4\obj\Debug\lab4.csproj.GenerateResource.cache
+G:\C#\ПИС\lab4\FifteenGame\lab4\lab4\obj\Debug\lab4.csproj.CoreCompileInputs.cache
+G:\C#\ПИС\lab4\FifteenGame\lab4\lab4\obj\Debug\lab4.exe
+G:\C#\ПИС\lab4\FifteenGame\lab4\lab4\obj\Debug\lab4.pdb

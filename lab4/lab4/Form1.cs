@@ -12,9 +12,11 @@ namespace lab4
 {
     public partial class Fifteen : Form
     {
+        Game game;
         private Button GetButton(int index)
         {
-            Button button = button0;
+            Button button;
+            button = button0;
             switch (index)
             {
                 case 1:
@@ -65,18 +67,30 @@ namespace lab4
             }
             return button;
         }
-        private int CoordinatesToPosition(int x, int y)
-        {
-            return
-        }
-        private void PositionToCoordinates(int position, out int x, out int y)
-        {
-            return
-        }
 
         public Fifteen()
         {
             InitializeComponent();
+            game=new Game(4);
+        }
+        private void GameStart()
+        {
+            game.Start();
+            RefreshButtonField();
+        }
+
+        private void RefreshButtonField()
+        {
+            for (int position = 0; position < 16; position++)
+            {
+                Button button = GetButton(position);
+                button.Show();
+                GetButton(position).Text = game.GetNumber(position).ToString();
+                if (game.GetNumber(position)==0)
+                {
+                    button.Hide();
+                }
+            }
         }
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -86,12 +100,25 @@ namespace lab4
 
         private void Fifteen_Load(object sender, EventArgs e)
         {
-
+            GameStart();
         }
 
         private void Fifteen_MouseClick(object sender, MouseEventArgs e)
         {
 
+        }
+
+        private void начатьИгруToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            game.Start();
+            RefreshButtonField();
+        }
+
+        private void button0_Click(object sender, EventArgs e)
+        {
+            int position = Convert.ToInt32(((Button)sender).Tag);
+            game.Shift(position);
+            RefreshButtonField();
         }
     }
 }

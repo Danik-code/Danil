@@ -29,9 +29,8 @@ namespace lab4
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Fifteen));
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.начатьИгруToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.button15 = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
@@ -49,27 +48,15 @@ namespace lab4
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button0 = new System.Windows.Forms.Button();
-            this.menuStrip1.SuspendLayout();
+            this.button16 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.начатьИгруToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.начатьИгруToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(667, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
-            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
-            // 
-            // начатьИгруToolStripMenuItem
-            // 
-            this.начатьИгруToolStripMenuItem.Name = "начатьИгруToolStripMenuItem";
-            this.начатьИгруToolStripMenuItem.Size = new System.Drawing.Size(86, 20);
-            this.начатьИгруToolStripMenuItem.Text = "Начать игру";
-            this.начатьИгруToolStripMenuItem.Click += new System.EventHandler(this.начатьИгруToolStripMenuItem_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -313,13 +300,70 @@ namespace lab4
             this.button0.UseVisualStyleBackColor = true;
             this.button0.Click += new System.EventHandler(this.button0_Click);
             // 
+            // button16
+            // 
+            this.button16.Location = new System.Drawing.Point(0, 24);
+            this.button16.Name = "button16";
+            this.button16.Size = new System.Drawing.Size(677, 417);
+            this.button16.TabIndex = 3;
+            this.button16.Text = "button16";
+            this.button16.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(498, 5);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(57, 18);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Ходов:";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // начатьИгруToolStripMenuItem
+            // 
+            this.начатьИгруToolStripMenuItem.Name = "начатьИгруToolStripMenuItem";
+            this.начатьИгруToolStripMenuItem.Size = new System.Drawing.Size(86, 20);
+            this.начатьИгруToolStripMenuItem.Text = "Начать игру";
+            this.начатьИгруToolStripMenuItem.Click += new System.EventHandler(this.начатьИгруToolStripMenuItem_Click);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.начатьИгруToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(667, 24);
+            this.menuStrip1.TabIndex = 0;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(332, 5);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(16, 18);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "0";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
             // Fifteen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(667, 431);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.button16);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Fifteen";
@@ -327,18 +371,15 @@ namespace lab4
             this.Text = "Пятнашки";
             this.Load += new System.EventHandler(this.Fifteen_Load);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Fifteen_MouseClick);
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem начатьИгруToolStripMenuItem;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button button15;
         private System.Windows.Forms.Button button14;
@@ -356,6 +397,12 @@ namespace lab4
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button0;
+        private System.Windows.Forms.Button button16;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ToolStripMenuItem начатьИгруToolStripMenuItem;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label label2;
     }
 }
 

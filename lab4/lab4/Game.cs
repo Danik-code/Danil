@@ -11,6 +11,7 @@ namespace lab4
         int[,] field;
         int size;
         int x0, y0;
+
         public Game(int size)
         {
             this.size = size;
@@ -18,39 +19,39 @@ namespace lab4
         }
         private int CoordinatesToPosition(int x, int y)
         {
-            int Nbutton = 1;
+            int Nbutton = 0;
             if (x == 0 && y == 0)
                 return Nbutton;
             if (x == 1 && y == 0)
-                return Nbutton = 2;
+                return Nbutton = 1;
             if (x == 2 && y == 0)
-                return Nbutton = 3;
+                return Nbutton = 2;
             if (x == 3 && y == 0)
-                return Nbutton = 4;
+                return Nbutton = 3;
             if (x == 0 && y == 1)
-                return Nbutton = 5;
+                return Nbutton = 4;
             if (x == 1 && y == 1)
-                return Nbutton = 6;
+                return Nbutton = 5;
             if (x == 2 && y == 1)
-                return Nbutton = 7;
+                return Nbutton = 6;
             if (x == 3 && y == 1)
-                return Nbutton = 8;
+                return Nbutton = 7;
             if (x == 0 && y == 2)
-                return Nbutton = 9;
+                return Nbutton = 8;
             if (x == 1 && y == 2)
-                return Nbutton = 10;
+                return Nbutton = 9;
             if (x == 2 && y == 2)
-                return Nbutton = 11;
+                return Nbutton = 10;
             if (x == 3 && y == 2)
-                return Nbutton = 12;
+                return Nbutton = 11;
             if (x == 0 && y == 3)
-                return Nbutton = 13;
+                return Nbutton = 12;
             if (x == 1 && y == 3)
-                return Nbutton = 14;
+                return Nbutton = 13;
             if (x == 2 && y == 3)
-                return Nbutton = 15;
+                return Nbutton = 14;
             if (x == 3 && y == 3)
-                return Nbutton = 16;
+                return Nbutton = 15;
             return Nbutton;
         }
         private void PositionToCoordinates(int position, out int x, out int y)
@@ -91,15 +92,13 @@ namespace lab4
         }
         public void Start()
         {
-            for (int i = 0; i < size; i++)
+            for (int y = 0; y < size; y++)
             {
-                for (int j = 0; j < size; j++)
+                for (int x = 0; x < size; x++)
                 {
-                    field[i, j] = CoordinatesToPosition(j, i);
-                    if (field[i, j]==16)
-                    {
-                        field[i, j] = 0;
-                    }
+                    field[x, y] = CoordinatesToPosition(x, y)+1;
+                    if (field[x, y]==16)
+                        field[x, y] = 0;
                 }
             }
             x0 = size - 1;
@@ -119,13 +118,22 @@ namespace lab4
             }
         }
 
-        public static int rand;
-        //Random rand = new Random();
+        private static readonly Random rand = new Random();
         public void ShiftRandom()
         {
-            Random rand = new Random();
-            int val = rand.Next(1, 101);
-
+            int a = rand.Next(0, 4);
+            int x = x0;
+            int y = y0;
+            if (a == 0)
+                x -= 1;
+            if (a == 1)
+                x += 1;
+            if (a == 2)
+                y -= 1;
+            if (a == 3)
+                y += 1;
+            if (x < size && y < size && x >= 0 && y >= 0)
+                Shift(CoordinatesToPosition(x, y));
         }
 
         public int GetNumber(int position)
@@ -133,10 +141,39 @@ namespace lab4
             int x, y;
             PositionToCoordinates(position, out x, out y);
             if (x < 0 || y < 0)
-            {
                 return 0;
-            }
             return field[x, y];
+        }
+
+        public bool Check()
+        {
+            bool ch=true;
+            if (x0==size-1&&y0==size-1)
+            {
+                for (int i = 0; i < size; i++)
+                {
+                    for (int j = 0; j < size; j++)
+                    {
+                        if (i==3&&j==3)
+                            break;
+                        else
+                        {
+                            if ((field[i, j] != CoordinatesToPosition(i, j) + 1))
+                            {
+                                ch = false;
+                                i = 4;
+                                break;
+                            }
+                        }
+                    }
+                }
+                if (ch == true)
+                    return true;
+                else
+                    return false;
+            }
+            else
+                return false;
         }
     }
 }

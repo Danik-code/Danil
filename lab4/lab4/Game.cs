@@ -11,11 +11,13 @@ namespace lab4
         int[,] field;
         int size;
         int x0, y0;
+        CaraTaker caraTaker;
 
         public Game(int size)
         {
             this.size = size;
             field = new int[size, size];
+            caraTaker = new CaraTaker();
         }
         private int CoordinatesToPosition(int x, int y)
         {
@@ -105,7 +107,7 @@ namespace lab4
             y0 = size - 1;
         }
 
-        public void Shift(int position)
+        private void Shift(int position)
         {
             int x, y;
             PositionToCoordinates(position, out x, out y);
@@ -116,6 +118,14 @@ namespace lab4
                 x0 = x;
                 y0 = y;
             }
+        }
+
+        public void ShiftAndSave(int position)
+        {
+            Memento memento = new Memento(4);
+            memento.SetMemento(field);
+            caraTaker.push(memento);
+            Shift(position);
         }
 
         private static readonly Random rand = new Random();
@@ -134,6 +144,42 @@ namespace lab4
                 y += 1;
             if (x < size && y < size && x >= 0 && y >= 0)
                 Shift(CoordinatesToPosition(x, y));
+        }
+
+        public void RandomGame()
+        {
+            for (int i = 0; i < 150; i++)
+            {
+                ShiftRandom();
+            } 
+        }
+
+        public void Undo()
+        {
+
+            Memento memento = new Memento(4);
+            memento = caraTaker.pop();
+            if (memento!=null)
+            {
+                for (int y = 0; y < size; y++)
+                {
+                    for (int x = 0; x < size; x++)
+                    {
+                        field[x, y] = memento.GetMemento[x, y];
+                    }
+                }
+                for (int y = 0; y < size; y++)
+                {
+                    for (int x = 0; x < size; x++)
+                    {
+                        if (field[x, y]==0)
+                        {
+                            x0 = x;
+                            y0 = y;
+                        }
+                    }
+                }
+            }
         }
 
         public int GetNumber(int position)

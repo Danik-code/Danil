@@ -82,11 +82,7 @@ namespace lab4
         {
             game.Start();
             RefreshButtonField();
-            for (int i = 0; i < 150; i++)
-            {
-                game.ShiftRandom();
-                RefreshButtonField();
-            }
+            
         }
 
         private void RefreshButtonField()
@@ -115,13 +111,8 @@ namespace lab4
         private void начатьИгруToolStripMenuItem_Click(object sender, EventArgs e)
         {
             game.Start();
+            game.RandomGame();
             RefreshButtonField();
-            for (int i = 0; i < 150; i++)
-            {
-                game.ShiftRandom();
-                RefreshButtonField();
-            }
-
             ms = 0; sec = 0;
             timer1.Enabled = false;
             label2.Text = "Время: " + sec + ":" + ms;
@@ -133,7 +124,7 @@ namespace lab4
         private void button0_Click(object sender, EventArgs e)
         {
             int position = Convert.ToInt32(((Button)sender).Tag);
-            game.Shift(position);
+            game.ShiftAndSave(position);
             RefreshButtonField();
 
 
@@ -151,6 +142,14 @@ namespace lab4
 
         private void label1_Click(object sender, EventArgs e)
         {}
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            game.Undo();
+            RefreshButtonField();
+            counter++;
+            label1.Text = "Ходов: " + counter.ToString();
+        }
 
         private void timer1_Tick(object sender, EventArgs e)
         {

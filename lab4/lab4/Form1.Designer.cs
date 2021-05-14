@@ -54,6 +54,7 @@ namespace lab4
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label2 = new System.Windows.Forms.Label();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -331,7 +332,8 @@ namespace lab4
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.начатьИгруToolStripMenuItem});
+            this.начатьИгруToolStripMenuItem,
+            this.toolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(667, 24);
@@ -353,6 +355,13 @@ namespace lab4
             this.label2.TabIndex = 5;
             this.label2.Text = "0";
             this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(50, 20);
+            this.toolStripMenuItem1.Text = "Откат";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // Fifteen
             // 
@@ -403,6 +412,7 @@ namespace lab4
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
     }
 }
 

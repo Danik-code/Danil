@@ -13,87 +13,50 @@ namespace lab4
     public partial class Fifteen : Form
     {
         Game game;
-        public int ms, sec, min;
         int counter = 0;
-        private Button GetButton(int index)
+        private MyButton GetButton(int index)
         {
-            Button button;
-            button = button0;
             switch (index)
             {
-                case 0:
-                    button = button0;
-                    break;
-                case 1:
-                    button = button1;
-                    break;
-                case 2:
-                    button = button2;
-                    break;
-                case 3:
-                    button = button3;
-                    break;
-                case 4:
-                    button = button4;
-                    break;
-                case 5:
-                    button = button5;
-                    break;
-                case 6:
-                    button = button6;
-                    break;
-                case 7:
-                    button = button7;
-                    break;
-                case 8:
-                    button = button8;
-                    break;
-                case 9:
-                    button = button9;
-                    break;
-                case 10:
-                    button = button10;
-                    break;
-                case 11:
-                    button = button11;
-                    break;
-                case 12:
-                    button = button12;
-                    break;
-                case 13:
-                    button = button13;
-                    break;
-                case 14:
-                    button = button14;
-                    break;
-                case 15:
-                    button = button15;
-                    break;
+                case 0: return button0;
+                case 1: return button1;
+                case 2: return button2;
+                case 3: return button3;
+                case 4: return button4;
+                case 5: return button5;
+                case 6: return button6;
+                case 7: return button7;
+                case 8: return button8;
+                case 9: return button9;
+                case 10: return button10;
+                case 11: return button11;
+                case 12: return button12;
+                case 13: return button13;
+                case 14: return button14;
+                case 15: return button15;
+                default: return button0;
             }
-            return button;
         }
 
         public Fifteen()
         {
             InitializeComponent();
-            game=new Game(4);
+            game = new Game(4);
         }
         private void GameStart()
         {
             game.Start();
             RefreshButtonField();
-            
         }
 
         private void RefreshButtonField()
         {
             for (int position = 0; position < 16; position++)
             {
-                Button button = GetButton(position);
-                button.Show();
-                GetButton(position).Text = game.GetNumber(position).ToString();
-                if (game.GetNumber(position)==0)
-                    button.Hide();
+                GetButton(position).Textb = game.GetNumber(position).ToString();
+                GetButton(position).Visible = true;
+                if (game.GetNumber(position).ToString() == "0") GetButton(position).Visible = false;
+                GetButton(position).Invalidate();
             }
         }
 
@@ -102,46 +65,40 @@ namespace lab4
         {
             GameStart();
             label1.Text = "Ходов: ";
-			label2.Text = "Время: " + "0" + ":" + "0";
-		}
+        }
 
         private void Fifteen_MouseClick(object sender, MouseEventArgs e)
-        {}
+        { }
 
         private void начатьИгруToolStripMenuItem_Click(object sender, EventArgs e)
         {
             game.Start();
             game.RandomGame();
             RefreshButtonField();
-            ms = 0; sec = 0;
-            timer1.Enabled = false;
-            label2.Text = "Время: " + sec + ":" + ms;
 
             counter = 0;
             label1.Text = "Ходов: " + counter.ToString();
         }
-
-        private void button0_Click(object sender, EventArgs e)
+        private void button0_Click_1(object sender, EventArgs e)
         {
-            int position = Convert.ToInt32(((Button)sender).Tag);
+            int position = Convert.ToInt32(((MyButton)sender).Tag);
             game.ShiftAndSave(position);
             RefreshButtonField();
 
-
             counter++;
-            label1.Text = "Ходов: "+ counter.ToString();
+            label1.Text = "Ходов: " + counter.ToString();
 
-            timer1.Enabled = true;
+            gameTimer1.Start();
             if (game.Check())
             {
-                timer1.Enabled = false;
-                MessageBox.Show("Победа");
-                ms = 0; sec = 0;
+                gameTimer1.Stop();
+                MessageBox.Show("Победа \n" + gameTimer1.TextT());
+                gameTimer1.Res();
             }
         }
 
         private void label1_Click(object sender, EventArgs e)
-        {}
+        { }
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -151,23 +108,20 @@ namespace lab4
             label1.Text = "Ходов: " + counter.ToString();
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void Fifteen_KeyDown(object sender, KeyEventArgs e)
         {
-            ms += 1;
-            if (ms == 60)
+            if (e.KeyCode == Keys.Back)
             {
-                ms = 0;
-                sec += 1;
+                game.Undo();
+                RefreshButtonField();
+                counter++;
+                label1.Text = "Ходов: " + counter.ToString();
             }
-            if (sec == 60)
-            {
-                sec = 0;
-                min += 1;
-            }
-            label2.Text = "Время: " + sec + ":" + ms;
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {}
+        private void gameTimer1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -1,0 +1,8 @@
+E:\С#\ПИС\lab4\lab4\ComponentLibrary\bin\Release\ComponentLibrary.dll
+E:\С#\ПИС\lab4\lab4\ComponentLibrary\bin\Release\ComponentLibrary.pdb
+E:\С#\ПИС\lab4\lab4\ComponentLibrary\obj\Release\ComponentLibrary.csprojAssemblyReference.cache
+E:\С#\ПИС\lab4\lab4\ComponentLibrary\obj\Release\ComponentLibrary.con.resources
+E:\С#\ПИС\lab4\lab4\ComponentLibrary\obj\Release\ComponentLibrary.csproj.GenerateResource.cache
+E:\С#\ПИС\lab4\lab4\ComponentLibrary\obj\Release\ComponentLibrary.csproj.CoreCompileInputs.cache
+E:\С#\ПИС\lab4\lab4\ComponentLibrary\obj\Release\ComponentLibrary.dll
+E:\С#\ПИС\lab4\lab4\ComponentLibrary\obj\Release\ComponentLibrary.pdb

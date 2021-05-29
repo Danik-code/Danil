@@ -1,0 +1,17 @@
+D:\С#\ПИС\lab4\lab4\ComponentLibrary\bin\Debug\ComponentLibrary.dll
+D:\С#\ПИС\lab4\lab4\ComponentLibrary\bin\Debug\ComponentLibrary.pdb
+D:\С#\ПИС\lab4\lab4\ComponentLibrary\obj\Debug\ComponentLibrary.csproj.GenerateResource.cache
+D:\С#\ПИС\lab4\lab4\ComponentLibrary\obj\Debug\ComponentLibrary.csproj.CoreCompileInputs.cache
+D:\С#\ПИС\lab4\lab4\ComponentLibrary\obj\Debug\ComponentLibrary.dll
+D:\С#\ПИС\lab4\lab4\ComponentLibrary\obj\Debug\ComponentLibrary.pdb
+E:\С#\ПИС\lab4\lab4\ComponentLibrary\bin\Debug\ComponentLibrary.dll
+E:\С#\ПИС\lab4\lab4\ComponentLibrary\bin\Debug\ComponentLibrary.pdb
+E:\С#\ПИС\lab4\lab4\ComponentLibrary\obj\Debug\ComponentLibrary.csproj.GenerateResource.cache
+E:\С#\ПИС\lab4\lab4\ComponentLibrary\obj\Debug\ComponentLibrary.csproj.CoreCompileInputs.cache
+E:\С#\ПИС\lab4\lab4\ComponentLibrary\obj\Debug\ComponentLibrary.dll
+E:\С#\ПИС\lab4\lab4\ComponentLibrary\obj\Debug\ComponentLibrary.pdb
+E:\С#\ПИС\lab4\lab4\ComponentLibrary\obj\Debug\ComponentLibrary.GameTimer.resources
+D:\С#\ПИС\lab4\lab4\ComponentLibrary\obj\Debug\ComponentLibrary.GameTimer.resources
+D:\С#\ПИС\lab4\lab4\ComponentLibrary\obj\Debug\lab4.MyButton.resources
+E:\С#\ПИС\lab4\lab4\ComponentLibrary\obj\Debug\ComponentLibrary.csprojAssemblyReference.cache
+E:\С#\ПИС\lab4\lab4\ComponentLibrary\obj\Debug\lab4.MyButton.resources

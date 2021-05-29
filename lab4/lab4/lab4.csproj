@@ -90,5 +90,11 @@
   <ItemGroup>
     <Content Include="arrow_zoom_ui_expand_icon_183089.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ComponentLibrary\ComponentLibrary.csproj">
+      <Project>{afacaf9f-87dd-4844-ba8c-5a91d31aee90}</Project>
+      <Name>ComponentLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
